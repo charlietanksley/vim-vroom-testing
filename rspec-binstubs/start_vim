@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bundle install --binstubs
+vim -u vimrc spec/some_class_spec.rb
