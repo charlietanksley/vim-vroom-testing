@@ -1,3 +1,9 @@
 #!/bin/sh
 
-vim -u vimrc test/some_class_test.rb
+function bundle() {
+  echo 'ERROR: Should not have called `bundle exec`.'
+}
+
+export -f bundle
+
+vim -u vimrc -c 'silent call vroom#RunTestFile()' -c 'q' test/some_class_test.rb 2>&- | grep '2 tests, 2 assertions, 0 failures' | sed 's/.*/Success/'

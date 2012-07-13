@@ -8,4 +8,5 @@ function bundle() {
 
 export -f bundle
 
-vim -u vimrc -c 'silent call vroom#RunTestFile()' -c 'q' spec/some_class_spec.rb 2>&- | grep '2 examples, 0 failures' | sed 's/.*/Success/'
+
+vim +6 -u vimrc -c 'silent call vroom#RunNearestTest()' -c 'q' spec/some_class_spec.rb 2>&- | grep '1 example, 0 failures' | sed 's/.*/Success/'

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+bundle install > /dev/null 2>&1
+
+vim +6 -u vimrc -c 'silent call vroom#RunNearestTest()' -c 'q' spec/some_class_spec.rb 2>&- | grep '1 example, 0 failures' | sed 's/.*/Success/'

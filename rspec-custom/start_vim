@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo 'This will spawn a spin server in the background.  After you run the tests you will want to foreground it (fg) and kill it (^C).'
+bundle install
+spin serve --push-results &
+vim -u vimrc spec/some_class_spec.rb
